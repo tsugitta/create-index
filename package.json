@@ -2,7 +2,7 @@
     "name": "create-index",
     "displayName": "create-index",
     "description": "Create './index.ts' file that exports the file included in the directory.",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "tsugitta",
     "engines": {
         "vscode": "^1.12.0"
