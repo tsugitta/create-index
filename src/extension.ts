@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
+import * as commands from './commands';
 
 export function activate(context: vscode.ExtensionContext) {
+  const disposable = vscode.commands.registerCommand('extension.addCurrentFileExportationToIndex', () => {
+    commands.addCurrentFileExportationToIndex();
+  });
 
-    const disposable = vscode.commands.registerCommand('extension.addCurrentFileExportationToIndex', () => {
-        vscode.window.showInformationMessage('foo');
-    });
-
-    context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable);
 }
 
 export function deactivate() {
