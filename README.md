@@ -1,4 +1,4 @@
-# create-index README
+# create-index
 
 ## Features
 
@@ -22,3 +22,7 @@ Nothing.
 ### 0.1.0
 
 Initial release 🌱
+
+## source
+
+https://github.com/tsugitta/create-index
