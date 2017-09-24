@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.2
+
+- Support file name including period
+
 ## 0.1.1
 
 - Add GitHub link for vscode market
