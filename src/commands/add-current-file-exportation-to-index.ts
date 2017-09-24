@@ -25,7 +25,7 @@ const getIndexPath = (filePath: string): string => {
 
 const getExportationLine = (filePath: string): string => {
   const fileName = path.basename(filePath);
-  const fileNameWithoutExtension = fileName.split('.')[0];
+  const fileNameWithoutExtension = fileName.match(/(.+)\..+/)[1];
   return `export * from './${fileNameWithoutExtension}';`;
 };
 
