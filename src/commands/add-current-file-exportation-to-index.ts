@@ -51,7 +51,7 @@ export const addCurrentFileExportationToIndex = () => {
       throw new ApplicationError('The file is index.ts itself.');
     }
 
-    if (!filePath.match(/\.ts$/)) {
+    if (!filePath.match(/\.tsx?$/)) {
       throw new ApplicationError('The file is not TypeScript.');
     }
 
