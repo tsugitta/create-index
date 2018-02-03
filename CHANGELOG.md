@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.3
+
+- Support also `.tsx`
+
 ## 0.1.2
 
 - Support file name including period
