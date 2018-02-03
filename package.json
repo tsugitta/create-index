@@ -4,6 +4,10 @@
     "description": "Create './index.ts' file that exports the file included in the directory.",
     "version": "0.1.2",
     "publisher": "tsugitta",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tsugitta/create-index.git"
+    },
     "engines": {
         "vscode": "^1.12.0"
     },
