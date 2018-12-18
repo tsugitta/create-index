@@ -7,7 +7,7 @@
 by calling the command,
 
 - create `index.ts` in the same directory with opening file if needed
-- add `export * from ${fileName}` to `index.ts` with sorting lines if needed
+- add `export * from ${fileName}` to `index.ts` or `index.js` with sorting lines if needed
 
 ## Requirements
 
