@@ -11,8 +11,7 @@ import {
   getLines,
   writeFile,
 } from '../utils/file-manager'
-
-const INDEX_FILE_NAME = 'index.ts'
+import { getExtension } from '../utils/file-name'
 
 const getFilePath = (): string => {
   if (!fileIsOpened()) {
@@ -28,12 +27,14 @@ const getFilePath = (): string => {
 
 const getIndexPath = (filePath: string): string => {
   const dirPath = path.dirname(filePath)
-  return path.join(dirPath, INDEX_FILE_NAME)
+  const extension = getExtension(filePath).replace('x', '') // jsx -> js
+  return path.join(dirPath, `index.${extension}`)
 }
 
 const getExportationLine = (filePath: string): string => {
   const fileName = path.basename(filePath)
-  const fileNameWithoutExtension = fileName.match(/(.+)\..+/)[1]
+  const extension = getExtension(fileName)
+  const fileNameWithoutExtension = fileName.replace(`.${extension}`, '')
   return `export * from './${fileNameWithoutExtension}';`
 }
 
@@ -53,14 +54,15 @@ const writeLineAndSort = (filePath: string, line: string): void => {
 export const addCurrentFileExportationToIndex = () => {
   try {
     const filePath = getFilePath()
+
+    if (!filePath.match(/\.[jt]sx?$/)) {
+      throw new ApplicationError('The file is not JavaScipt or TypeScript.')
+    }
+
     const indexFilePath = getIndexPath(filePath)
 
     if (filePath === indexFilePath) {
-      throw new ApplicationError('The file is index.ts itself.')
-    }
-
-    if (!filePath.match(/\.tsx?$/)) {
-      throw new ApplicationError('The file is not TypeScript.')
+      throw new ApplicationError('The file is the index file itself.')
     }
 
     createFileIfNotExists(indexFilePath)
