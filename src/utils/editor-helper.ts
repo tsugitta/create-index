@@ -1,22 +1,22 @@
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'
 
 export const fileIsOpened = (): boolean => {
-  return !!vscode.window.activeTextEditor;
-};
+  return !!vscode.window.activeTextEditor
+}
 
 export const fileIsSaved = (): boolean => {
   if (!fileIsOpened) {
-    return false;
+    return false
   }
 
-  const document = vscode.window.activeTextEditor.document;
-  return !document.isUntitled;
-};
+  const document = vscode.window.activeTextEditor.document
+  return !document.isUntitled
+}
 
 export const getCurrentFilePath = (): string | null => {
   if (!(fileIsOpened && fileIsSaved)) {
-    return null;
+    return null
   }
 
-  return vscode.window.activeTextEditor.document.fileName;
-};
+  return vscode.window.activeTextEditor.document.fileName
+}

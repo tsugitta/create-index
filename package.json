@@ -1,49 +1,49 @@
 {
-    "name": "create-index",
-    "displayName": "create-index",
-    "description": "Create './index.ts' file that exports the file included in the directory.",
-    "version": "0.1.3",
-    "publisher": "tsugitta",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/tsugitta/create-index.git"
-    },
-    "engines": {
-        "vscode": "^1.12.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:extension.addCurrentFileExportationToIndex"
-    ],
-    "main": "./out/src/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.addCurrentFileExportationToIndex",
-                "title": "Add export declaration of current file to index.ts"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/mkdirp": "^0.5.1",
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^8.0.26",
-        "mkdirp": "^0.5.1",
-        "mocha": "^3.5.0",
-        "prettier": "^1.15.3",
-        "rimraf": "^2.6.1",
-        "tslint": "^5.7.0",
-        "tslint-config-prettier": "^1.17.0",
-        "tslint-plugin-prettier": "^2.0.1",
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0"
-    }
+  "name": "create-index",
+  "displayName": "create-index",
+  "description": "Create './index.ts' file that exports the file included in the directory.",
+  "version": "0.1.3",
+  "publisher": "tsugitta",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsugitta/create-index.git"
+  },
+  "engines": {
+    "vscode": "^1.12.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.addCurrentFileExportationToIndex"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.addCurrentFileExportationToIndex",
+        "title": "Add export declaration of current file to index.ts"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mkdirp": "^0.5.1",
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^8.0.26",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.5.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.1",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
+  }
 }
