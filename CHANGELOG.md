@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.5
+
+- Bugfix for the case where the index file does not exist
+
 ## 0.1.4
 
 - Support JS. for js file, the command creates `index.js` instead.
