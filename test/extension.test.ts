@@ -4,24 +4,50 @@ import * as mkdirp from 'mkdirp'
 import * as path from 'path'
 import * as rimraf from 'rimraf'
 import * as vscode from 'vscode'
+import { addCurrentFileExportationToIndex } from '../src/commands/add-current-file-exportation-to-index'
 import * as extension from '../src/extension'
+import { ApplicationError } from '../src/utils'
 
 const testResourcesPath = path.join(__dirname, 'test-resources')
 
 suite('Extension Tests', () => {
-  setup(() => {
-    mkdirp.sync(testResourcesPath)
-    fs.writeFileSync(path.join('foo.ts'), 'some data')
-  })
-
   suite('addCurrentFileExportationToIndex', () => {
-    suite('when file is not opened', () => {
-      test('fails with error', () => {})
+    setup(() => {
+      mkdirp.sync(testResourcesPath)
+      fs.writeFileSync(path.join(testResourcesPath, 'foo.ts'), '')
+      fs.writeFileSync(path.join(testResourcesPath, 'bar.ts'), '')
     })
 
-    test('Something 1', () => {
-      assert.equal(-1, [1, 2, 3].indexOf(5))
-      assert.equal(-1, [1, 2, 3].indexOf(0))
+    teardown(() => {
+      rimraf(testResourcesPath, () => {})
+    })
+
+    suite('when the file is not opened', () => {
+      test('fails with error', () => {
+        // TODO
+      })
+    })
+
+    suite('when the file is not saved', () => {
+      test('fails with error', () => {
+        // TODO
+      })
+    })
+
+    suite('when the index file does not exist', () => {
+      test('creates index file', () => {
+        // TODO
+      })
+
+      test('add an exportation line for the file', () => {
+        // TODO
+      })
+    })
+
+    suite('when the index file exists', () => {
+      test('add an exportation line for the file', () => {
+        // TODO
+      })
     })
   })
 })
