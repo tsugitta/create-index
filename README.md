@@ -17,12 +17,6 @@ by calling the command,
 
 Nothing.
 
-## Release Notes
-
-### 0.1.0
-
-Initial release 🌱
-
 ## source
 
 https://github.com/tsugitta/create-index

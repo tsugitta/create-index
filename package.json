@@ -2,7 +2,7 @@
   "name": "create-index",
   "displayName": "create-index",
   "description": "Create './index.ts' file that exports the file included in the directory.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "tsugitta",
   "repository": {
     "type": "git",

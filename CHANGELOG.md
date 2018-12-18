@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.4
+
+- Support JS. for js file, the command creates `index.js` instead.
+
 ## 0.1.3
 
 - Support also `.tsx`
