@@ -13,11 +13,7 @@ export const createFile = (filePath: string): void => {
     throw new FileAlreadyExistsError(`${filePath} already exists`)
   }
 
-  fs.appendFile(filePath, '', err => {
-    if (err) {
-      throw err
-    }
-  })
+  fs.appendFileSync(filePath, '', 'utf-8')
 }
 
 export const createFileIfNotExists = (filePath: string): void => {
