@@ -22,7 +22,7 @@
     "commands": [
       {
         "command": "extension.addCurrentFileExportationToIndex",
-        "title": "Add export declaration of current file to index.ts"
+        "title": "Add export declaration of current file to index.js or index.ts"
       }
     ]
   },
