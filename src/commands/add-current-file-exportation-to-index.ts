@@ -1,21 +1,29 @@
 import * as path from 'path'
 import * as vscode from 'vscode'
-import * as editor from '../utils/editor-helper'
+import {
+  fileIsOpened,
+  fileIsSaved,
+  getCurrentFilePath,
+} from '../utils/editor-helper'
 import { ApplicationError } from '../utils/errors'
-import * as fileManager from '../utils/file-manager'
+import {
+  createFileIfNotExists,
+  getLines,
+  writeFile,
+} from '../utils/file-manager'
 
 const INDEX_FILE_NAME = 'index.ts'
 
 const getFilePath = (): string => {
-  if (!editor.fileIsOpened()) {
+  if (!fileIsOpened()) {
     throw new ApplicationError('No file is opened.')
   }
 
-  if (!editor.fileIsSaved()) {
+  if (!fileIsSaved()) {
     throw new ApplicationError('The file is not saved yet.')
   }
 
-  return editor.getCurrentFilePath()
+  return getCurrentFilePath()
 }
 
 const getIndexPath = (filePath: string): string => {
@@ -30,7 +38,7 @@ const getExportationLine = (filePath: string): string => {
 }
 
 const writeLineAndSort = (filePath: string, line: string): void => {
-  const lines = fileManager.getLines(filePath).filter(l => l !== '')
+  const lines = getLines(filePath).filter(l => l !== '')
 
   if (!lines.includes(line)) {
     lines.push(line)
@@ -39,7 +47,7 @@ const writeLineAndSort = (filePath: string, line: string): void => {
   lines.sort()
   const written = `${lines.join('\n')}\n`
 
-  fileManager.writeFile(filePath, written)
+  writeFile(filePath, written)
 }
 
 export const addCurrentFileExportationToIndex = () => {
@@ -55,7 +63,7 @@ export const addCurrentFileExportationToIndex = () => {
       throw new ApplicationError('The file is not TypeScript.')
     }
 
-    fileManager.createFileIfNotExists(indexFilePath)
+    createFileIfNotExists(indexFilePath)
 
     const exportationLine = getExportationLine(filePath)
     writeLineAndSort(indexFilePath, exportationLine)
